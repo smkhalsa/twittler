@@ -1,1 +1,11 @@
+.time-stamp {
+  display: block;
+  text-align: right;
+  color: grey;
+  font-size: small;
+  margin-bottom: 5px;
+}
 
+pre {
+  margin-bottom: 0px;
+}

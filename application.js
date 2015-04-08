@@ -5,8 +5,13 @@ $(document).ready(function(){
   var loadTweets = function() {
     while(streams.home.length > index){
       var tweet = streams.home[index];
-      var $tweet = $('<pre></pre>');
-      $tweet.html('@' + tweet.user + ': ' + tweet.message + tweet.created_at);
+      var $tweet = $('<div></div>');
+      $tweet.html(
+        '<pre>' +
+        '<a href="#" class="userLink">@' + tweet.user + '</a>: ' +
+        tweet.message + '</pre>' +
+        '<span class="time-stamp">' + tweet.created_at + '</span>'
+        );
       $tweet.prependTo(".tweets");
       index += 1;
     }
