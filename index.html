@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Twittler</title>
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -15,15 +16,20 @@
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 bg-info">sidebar</div>
-        <div class="col-md-8 bg-primary">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter message">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <!-- Input for new tweet
+          <div class="input-group" id="tweet-input">
+            <input type="text" class="form-control" placeholder="Enter message" autofocus>
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Tweet!</button>
+              <button class="btn btn-primary" type="button">Tweet!</button>
             </span>
           </div>
-          <pre>test tweet</pre>
+          -->
+          <div class="alert alert-success" role="alert">
+            <a href="#" class="alert-link">View <span id="numNew"></span> new tweets</a>
+          </div>
+          <div class="tweets"></div>
         </div>
       </div>
     </div>
