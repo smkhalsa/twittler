@@ -9,3 +9,8 @@
 pre {
   margin-bottom: 0px;
 }
+
+.tweet {
+  font-family: gotham;
+  font-size: 16px;
+}

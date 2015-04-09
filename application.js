@@ -7,8 +7,8 @@ $(document).ready(function(){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet" data-user="'+ tweet.user +'"></div>');
       $tweet.html(
-        '<pre>' +
-        '<a href="#" class="user-link">@' + tweet.user + '</a>: ' +
+        '<pre class="tweet">' +
+        '<a href="#" class="user-link" data-toggle="modal" data-target="#tweet-modal" data-user="' + tweet.user + '">@' + tweet.user + '</a>: ' +
         tweet.message + '</pre>' +
         '<span class="time-stamp">' + tweet.created_at + '</span>'
         );
@@ -36,11 +36,14 @@ $(document).ready(function(){
     loadTweets();
   });
 
-  $(".user-link").on("click", function(){
-    var user = $(this).closest(".tweet").data("user");
-    $(".tweet").filter(function() {
-      return ($(this).data("user") !== user);
-    }).hide();
+  $("#tweet-modal").on("show.bs.modal", function(event){
+    var link = $(event.relatedTarget);
+    var user = link.data('user');
+    var modal = $(this);
+    modal.find('.modal-title').text('Tweets from ' + user);
+    modal.find('.modal-body').html($(".tweet").filter(function() {
+      return ($(this).data('user') === user);
+    }));
   });
 
 });
