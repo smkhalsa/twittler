@@ -5,10 +5,10 @@ $(document).ready(function(){
   var loadTweets = function() {
     while(streams.home.length > index){
       var tweet = streams.home[index];
-      var $tweet = $('<div></div>');
+      var $tweet = $('<div class="tweet" data-user="'+ tweet.user +'"></div>');
       $tweet.html(
         '<pre>' +
-        '<a href="#" class="userLink">@' + tweet.user + '</a>: ' +
+        '<a href="#" class="user-link">@' + tweet.user + '</a>: ' +
         tweet.message + '</pre>' +
         '<span class="time-stamp">' + tweet.created_at + '</span>'
         );
@@ -34,6 +34,13 @@ $(document).ready(function(){
 
   $(".alert-link").on("click", function(){
     loadTweets();
+  });
+
+  $(".user-link").on("click", function(){
+    var user = $(this).closest(".tweet").data("user");
+    $(".tweet").filter(function() {
+      return ($(this).data("user") !== user);
+    }).hide();
   });
 
 });
