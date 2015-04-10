@@ -40,10 +40,11 @@ $(document).ready(function(){
     var link = $(event.relatedTarget);
     var user = link.data('user');
     var modal = $(this);
-    modal.find('.modal-title').text('Tweets from ' + user);
-    modal.find('.modal-body').html($(".tweet").filter(function() {
+    modal.find('.modal-title').text('Tweets from @' + user);
+    modal.find('.modal-body').html('');
+    $(".tweet").filter(function() {
       return ($(this).data('user') === user);
-    }));
+    }).clone().appendTo(modal.find('.modal-body'));
   });
 
 });

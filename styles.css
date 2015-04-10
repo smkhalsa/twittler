@@ -1,13 +1,13 @@
 .time-stamp {
   display: block;
   text-align: right;
-  color: grey;
+  color: white;
   font-size: small;
   margin-bottom: 5px;
 }
 
 pre {
-  margin-bottom: 0px;
+  margin-bottom: 3px;
 }
 
 .tweet {
